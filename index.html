@@ -3,97 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piyasa Analizi</title>
-    <link rel="stylesheet" href="styles.css">
-    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <title>AykTrade</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #1e1e1e;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar h1 {
+            font-size: 24px;
+            text-align: center;
+            color: #4CAF50;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px 0;
+        }
+        .sidebar ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+        .sidebar ul li a:hover {
+            background-color: #4CAF50;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>PİYASA ANALİZİ</h1>
-        </header>
-        <div class="main-content">
-            <div class="left-panel">
-                <div class="crypto-box">
-                    <h2>Bitcoin</h2>
-                    <p>Fiyat: <span id="btc-price">$69,590</span></p>
-                    <p>24 Saat Değişim: <span id="btc-24h">%1.8</span></p>
-                    <p>7 Günlük Değişim: <span id="btc-7d">%0.5</span></p>
-                    <p>Piyasa Değeri: <span id="btc-marketcap">$1.37 T</span></p>
-                    <div id="tradingview_btc"></div>
-                </div>
-                <div class="crypto-box">
-                    <h2>Ethereum</h2>
-                    <p>Fiyat: <span id="eth-price">$3,884</span></p>
-                    <p>24 Saat Değişim: <span id="eth-24h">%1.3</span></p>
-                    <p>7 Günlük Değişim: <span id="eth-7d">%8.5</span></p>
-                    <p>Piyasa Değeri: <span id="eth-marketcap">$466.43 Bn</span></p>
-                    <div id="tradingview_eth"></div>
-                </div>
-            </div>
-            <div class="right-panel">
-                <div class="index-box">
-                    <h2>Korku ve Açgözlülük Endeksi</h2>
-                    <p><span id="fear-greed-index">74</span>/100</p>
-                    <p>Açgözlülük</p>
-                </div>
-                <div class="market-data-box">
-                    <h2>Market Verileri</h2>
-                    <p>Market Hacmi: <span id="market-volume">$2.60 T</span></p>
-                    <p>Bitcoin Dominasyonu: <span id="btc-dominance">%52.71</span></p>
-                    <p>Toplam Kripto Paralar: <span id="total-crypto">29,908</span></p>
-                    <p>ETH Dominance: <span id="eth-dominance">%17.96</span></p>
-                </div>
-            </div>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="/mnt/data/AykırıTrade (1).png" alt="AykTrade Logo">
         </div>
-        <div class="bottom-content">
-            <div class="heatmap">
-                <h2>Kripto Sıralaması</h2>
-                <div id="heatmap"></div>
-            </div>
-            <div class="tradingview-charts">
-                <div id="usdttry"></div>
-                <div id="dxy"></div>
-                <div id="gold"></div>
-                <div id="brent"></div>
-            </div>
+        <h1>AykTrade</h1>
+        <ul>
+            <li><a href="#page1">Page 1</a></li>
+            <li><a href="#page2">Page 2</a></li>
+            <li><a href="#news">Haberler</a></li>
+            <li><a href="#tweets">Güncel Tweetler</a></li>
+            <li><a href="#product">Ürün Tanıtımı</a></li>
+            <li><a href="#summary">Günlük Özet</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div id="page1">
+            <h2>Page 1</h2>
+            <p>Burada Page 1 içeriği olacak.</p>
+        </div>
+        <div id="page2">
+            <h2>Page 2</h2>
+            <p>Burada Page 2 içeriği olacak.</p>
+        </div>
+        <div id="news">
+            <h2>Haberler</h2>
+            <p>Burada güncel haberler olacak.</p>
+        </div>
+        <div id="tweets">
+            <h2>Güncel Tweetler</h2>
+            <p>Burada güncel tweetler olacak.</p>
+        </div>
+        <div id="product">
+            <h2>Ürün Tanıtımı</h2>
+            <p>Burada ürün tanıtımı olacak.</p>
+        </div>
+        <div id="summary">
+            <h2>Günlük Özet</h2>
+            <p>Burada günlük özet olacak. TradingView grafiklerini buraya ekleyebilirsiniz.</p>
         </div>
     </div>
-
-    <script>
-        // TradingView Widget for BTC
-        new TradingView.widget({
-            "width": 400,
-            "height": 300,
-            "symbol": "BINANCE:BTCUSDT",
-            "interval": "D",
-            "timezone": "Etc/UTC",
-            "theme": "dark",
-            "style": "1",
-            "locale": "tr",
-            "toolbar_bg": "#f1f3f6",
-            "enable_publishing": false,
-            "allow_symbol_change": true,
-            "container_id": "tradingview_btc"
-        });
-
-        // TradingView Widget for ETH
-        new TradingView.widget({
-            "width": 400,
-            "height": 300,
-            "symbol": "BINANCE:ETHUSDT",
-            "interval": "D",
-            "timezone": "Etc/UTC",
-            "theme": "dark",
-            "style": "1",
-            "locale": "tr",
-            "toolbar_bg": "#f1f3f6",
-            "enable_publishing": false,
-            "allow_symbol_change": true,
-            "container_id": "tradingview_eth"
-        });
-
-        // Diğer TradingView Widget'larını benzer şekilde ekleyebilirsiniz
-    </script>
 </body>
 </html>
