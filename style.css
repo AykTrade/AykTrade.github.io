@@ -1,0 +1,48 @@
+/* styles.css */
+
+body {
+    background-color: #1e1e1e;
+    color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-panel, .right-panel {
+    width: 48%;
+}
+
+.crypto-box, .index-box, .market-data-box {
+    background-color: #2a2a2a;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.crypto-box h2, .index-box h2, .market-data-box h2 {
+    color: #ffcc00;
+}
+
+.bottom-content {
+    margin-top: 20px;
+}
+
+.heatmap, .tradingview-charts {
+    background-color: #2a2a2a;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
