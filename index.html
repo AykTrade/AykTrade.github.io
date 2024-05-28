@@ -107,6 +107,20 @@
             cursor: pointer;
             z-index: 1001;
         }
+        .button-group {
+            margin-bottom: 20px;
+        }
+        .button-group button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .button-group button:hover {
+            background-color: #45a049;
+        }
         iframe {
             width: 100%;
             height: 600px; /* Yüksekliği ihtiyaçlarınıza göre ayarlayabilirsiniz */
@@ -159,7 +173,7 @@
 </head>
 <body>
     <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-    <div class="sidebar hidden">
+    <div class="sidebar">
         <div>
             <div class="logo">
                 <img src="./image/AykiriTrade.png" alt="AykTrade Logo">
@@ -167,6 +181,7 @@
             <h1>AykTrade</h1>
             <ul>
                 <li><a href="javascript:void(0)" onclick="showPage('summary')">Günün Özeti</a></li>
+                <li><a href="javascript:void(0)" onclick="showPage('heatmap')">Heat Map</a></li>
                 <li><a href="javascript:void(0)" onclick="showPage('news')">Haberler</a></li>
                 <li><a href="javascript:void(0)" onclick="showPage('tweets')">Güncel Tweetler</a></li>
                 <li><a href="javascript:void(0)" onclick="showPage('product')">Ürün Tanıtımı</a></li>
@@ -178,10 +193,22 @@
             <a href="https://twitter.com/AykTrade" target="_blank">Twitter</a>
         </div>
     </div>
-    <div class="content shifted">
+    <div class="content">
         <div id="summary" class="page">
             <h2>Günün Özeti</h2>
-            <iframe src="https://www.coinglass.com/pro/futures/LiquidationHeatMap"></iframe>
+            <p>Burada günlük özet olacak. Günlük piyasa analizleri ve özet bilgileri burada bulabilirsiniz.</p>
+            <iframe src="https://coin360.com/widget/map?utm_source=embed_map" frameborder="0" title="Coin360.com: Cryptocurrency Market State" width="400" height="300"></iframe>
+        </div>
+        <div id="heatmap" class="page" style="display:none;">
+            <h2>Heat Map</h2>
+            <div class="button-group">
+                <button onclick="updateHeatmap('BTC', '1h')">BTC - 1 Saat</button>
+                <button onclick="updateHeatmap('ETH', '1h')">ETH - 1 Saat</button>
+                <button onclick="updateHeatmap('BTC', '1d')">BTC - 1 Gün</button>
+                <button onclick="updateHeatmap('ETH', '1d')">ETH - 1 Gün</button>
+                <!-- Diğer coin ve zaman dilimleri eklenebilir -->
+            </div>
+            <iframe src="https://www.coinglass.com/pro/futures/LiquidationHeatMap?symbol=BTC&interval=1h"></iframe>
         </div>
         <div id="news" class="page" style="display:none;">
             <h2>Haberler</h2>
