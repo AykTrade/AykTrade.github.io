@@ -162,6 +162,17 @@
             height: 20px;
             margin-right: 5px;
         }
+        .iframe-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .iframe-container iframe {
+            flex: 1;
+            min-width: 300px;
+            height: 252px;
+            border: none;
+        }
     </style>
     <script>
         function showPage(pageId) {
@@ -227,8 +238,19 @@
         <div id="summary" class="page">
             <h2>Günün Özeti</h2>
             <p>Burada günlük özet olacak. Günlük piyasa analizleri ve özet bilgileri burada bulabilirsiniz.</p>
+            <div class="iframe-container">
+                <iframe src="https://coin360.com/coin-widget?coin=bitcoin-btc&primaryCurrency=USDT&utm_source=embed_widget_coin"></iframe>
+                <iframe src="https://coin360.com/coin-widget?coin=ethereum-eth&primaryCurrency=USDT&utm_source=embed_widget_coin"></iframe>
+                <iframe src="https://coin360.com/coin-widget?coin=binance-coin-bnb&primaryCurrency=USDT&utm_source=embed_widget_coin"></iframe>
+            </div>            
             <iframe src="https://coin360.com/widget/map?utm_source=embed_map" frameborder="0" title="Coin360.com: Cryptocurrency Market State" width="400" height="300"></iframe>
-        </div>
+            <p>ETF</p>
+            <div class="iframe-container">
+                <iframe width="100%" height="420" frameborder="0" src="https://www.theblock.co/data/crypto-markets/bitcoin-etf/spot-bitcoin-etf-flows/embed" title="Spot Bitcoin ETF Flows"></iframe>                
+            </div>            
+            <iframe src="https://tr.widgets.investing.com/live-currency-cross-rates?theme=darkTheme&pairs=1,66,10254,10290" width="100%" height="600" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0"></iframe><div class="poweredBy" style="font-family: Arial, Helvetica, sans-serif;">Araç Sağlayıcı: <a href="https://tr.investing.com?utm_source=WMT&amp;utm_medium=referral&amp;utm_campaign=LIVE_CURRENCY_X_RATES&amp;utm_content=Footer%20Link" target="_blank" rel="nofollow">Investing.com</a></div>
+
+        </div>        
         <div id="heatmap" class="page" style="display:none;">
             <h2>Heat Map</h2>
             <div class="button-group">
