@@ -65,11 +65,13 @@
             padding: 20px;
             box-sizing: border-box;
             overflow-y: auto;
-            transition: margin-left 0.3s ease;
+            transition: margin-left 0.3s ease, width 0.3s ease;
+            width: calc(100% - 250px);
             margin-left: 250px;
         }
         .content.shifted {
             margin-left: 0;
+            width: 100%;
         }
         .logo {
             text-align: center;
@@ -138,6 +140,7 @@
             .content {
                 margin-left: 0;
                 margin-top: 60px; /* Toggle button height */
+                width: 100%;
             }
             .content.shifted {
                 margin-top: 60px;
