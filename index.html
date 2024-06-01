@@ -25,7 +25,7 @@
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, width 0.3s ease;
             position: fixed;
             left: 0;
             top: 0;
@@ -34,6 +34,7 @@
         }
         .sidebar.hidden {
             transform: translateX(-250px);
+            width: 0;
         }
         .sidebar h1 {
             font-size: 24px;
@@ -68,6 +69,8 @@
             transition: margin-left 0.3s ease, width 0.3s ease;
             width: calc(100% - 250px);
             margin-left: 250px;
+            display: flex;
+            flex-direction: column;
         }
         .content.shifted {
             margin-left: 0;
@@ -181,14 +184,35 @@
         .tradingview-widget-copyright {
             display: none !important;
         }
+        .page {
+            display: none; /* Sayfaları başlangıçta gizli tutar */
+        }
+        .page.active {
+            display: block; /* Aktif sayfayı gösterir */
+        }
+        .tradingview-widget-container {
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .widget {
+            width: 100%;
+            max-width: 530px;
+            height: 500px;
+            margin: 10px;
+        }
     </style>
     <script>
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => {
-                page.style.display = 'none';
+                page.classList.remove('active');
             });
-            document.getElementById(pageId).style.display = 'block';
+            document.getElementById(pageId).classList.add('active');
         }
 
         function toggleSidebar() {
@@ -243,10 +267,8 @@
         </div>
     </div>
     <div class="content">
-        <div id="summary" class="page">
+        <div id="summary" class="page active">
             <h2>Günün Özeti</h2>
-            </div>    
-            <!-- TradingView Widget BEGIN -->
             <div class="tradingview-widget-container">
                 <div class="tradingview-widget-container__widget"></div>
                 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
@@ -269,11 +291,9 @@
                 "showSymbolLogo": true,
                 "colorTheme": "dark",
                 "locale": "tr"
-            }
+                }
                 </script>
             </div>
-            <!-- TradingView Widget END -->  
-            <!-- TradingView Widget BEGIN -->
             <div class="tradingview-widget-container">
                 <div class="tradingview-widget-container__widget"></div>
                 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
@@ -296,172 +316,140 @@
                 "showSymbolLogo": true,
                 "colorTheme": "dark",
                 "locale": "tr"
-            }
+                }
                 </script>
             </div>
-            <!-- TradingView Widget END -->                           
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>TradingView Widgets</title>
-                <style>
-                    body, html {
-                        height: 100%;
-                        margin: 0;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        background-color: #181818; /* Arka plan rengi */
+            <div class="container">
+                <div class="tradingview-widget-container widget">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+                    {
+                    "symbols": [
+                    [
+                        "BINANCE:ETHUSDT|1M"
+                    ],
+                    [
+                        "BINANCE:SOLUSDT|1M"
+                    ]
+                    ],
+                    "chartOnly": false,
+                    "width": "530",
+                    "height": "500",
+                    "locale": "en",
+                    "colorTheme": "dark",
+                    "autosize": true,
+                    "showVolume": true,
+                    "showMA": true,
+                    "hideDateRanges": false,
+                    "hideMarketStatus": false,
+                    "hideSymbolLogo": false,
+                    "scalePosition": "right",
+                    "scaleMode": "Normal",
+                    "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+                    "fontSize": "10",
+                    "noTimeScale": false,
+                    "valuesTracking": "1",
+                    "changeMode": "price-and-percent",
+                    "chartType": "area",
+                    "maLineColor": "#2962FF",
+                    "maLineWidth": 1,
+                    "maLength": 20,
+                    "lineWidth": 2,
+                    "lineType": 0,
+                    "dateRanges": [
+                    "5d|5",
+                    "1m|30",
+                    "3m|60",
+                    "12m|1D",
+                    "60m|1W",
+                    "all|1M"
+                    ]
                     }
-                    .container {
-                        display: flex;
-                        flex-direction: row;
+                    </script>
+                </div>
+                <div class="tradingview-widget-container widget">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+                    {
+                    "symbols": [
+                    [
+                        "BINANCE:BTCUSDT|1M"
+                    ],
+                    [
+                        "CRYPTOCAP:BTC.D|1M"
+                    ]
+                    ],
+                    "chartOnly": false,
+                    "width": "530",
+                    "height": "500",
+                    "locale": "en",
+                    "colorTheme": "dark",
+                    "autosize": true,
+                    "showVolume": true,
+                    "showMA": true,
+                    "hideDateRanges": false,
+                    "hideMarketStatus": false,
+                    "hideSymbolLogo": false,
+                    "scalePosition": "right",
+                    "scaleMode": "Normal",
+                    "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+                    "fontSize": "10",
+                    "noTimeScale": false,
+                    "valuesTracking": "1",
+                    "changeMode": "price-and-percent",
+                    "chartType": "area",
+                    "maLineColor": "#2962FF",
+                    "maLineWidth": 1,
+                    "maLength": 20,
+                    "lineWidth": 2,
+                    "lineType": 0,
+                    "dateRanges": [
+                    "5d|5",
+                    "1m|30",
+                    "3m|60",
+                    "12m|1D",
+                    "60m|1W",
+                    "all|1M"
+                    ]
                     }
-                    .widget {
-                        width: 530px;
-                        height: 300px;
-                        margin: 5px;
-                    }
-                    .column {
-                        display: flex;
-                        flex-direction: column;
-                    }
-                </style>
-            </head>
-            <body>
-                <div class="container">
+                    </script>
+                </div>
+                <div class="column">
+                    <script async src="https://static.coinstats.app/widgets/v5/cs-widget.js" ></script>
+                    <cs-widget type="fear-and-greed"
+                    theme="dark"
+                    direction="horizontal"
+                    background="#0D0D0D"
+                    is-market-sentiment-visible="false"
+                    is-last-updated-visible="false"
+                    title-color="#FFFFFF"
+                    chart-indicator-one-color="#F02935"
+                    chart-indicator-two-color="#F07D29"
+                    chart-indicator-three-color="#9ACB82"
+                    chart-indicator-four-color="#34B349"
+                    subtitle-color="#999999"
+                    last-updated-color="#999999"
+                    arrow-color="#262626"></cs-widget>
                     <div class="tradingview-widget-container widget">
                         <div class="tradingview-widget-container__widget"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
                         {
-                        "symbols": [
-                        [
-                            "BINANCE:ETHUSDT|1M"
-                        ],
-                        [
-                            "BINANCE:SOLUSDT|1M"
-                        ]
-                        ],
-                        "chartOnly": false,
-                        "width": "530",
-                        "height": "500",
+                        "symbol": "CRYPTOCAP:TOTAL",
+                        "width": "300",
+                        "height": "200",
                         "locale": "en",
+                        "dateRange": "3M",
                         "colorTheme": "dark",
-                        "autosize": false,
-                        "showVolume": true,
-                        "showMA": true,
-                        "hideDateRanges": false,
-                        "hideMarketStatus": false,
-                        "hideSymbolLogo": false,
-                        "scalePosition": "right",
-                        "scaleMode": "Normal",
-                        "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-                        "fontSize": "10",
-                        "noTimeScale": false,
-                        "valuesTracking": "1",
-                        "changeMode": "price-and-percent",
-                        "chartType": "area",
-                        "maLineColor": "#2962FF",
-                        "maLineWidth": 1,
-                        "maLength": 20,
-                        "lineWidth": 2,
-                        "lineType": 0,
-                        "dateRanges": [
-                        "5d|5",
-                        "1m|30",
-                        "3m|60",
-                        "12m|1D",
-                        "60m|1W",
-                        "all|1M"
-                        ]
-                    }
-                        </script>
-                    </div>
-                    <div class="tradingview-widget-container widget">
-                        <div class="tradingview-widget-container__widget"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-                        {
-                        "symbols": [
-                        [
-                            "BINANCE:BTCUSDT|1M"
-                        ],
-                        [
-                            "CRYPTOCAP:BTC.D|1M"
-                        ]
-                        ],
-                        "chartOnly": false,
-                        "width": "530",
-                        "height": "500",
-                        "locale": "en",
-                        "colorTheme": "dark",
-                        "autosize": false,
-                        "showVolume": true,
-                        "showMA": true,
-                        "hideDateRanges": false,
-                        "hideMarketStatus": false,
-                        "hideSymbolLogo": false,
-                        "scalePosition": "right",
-                        "scaleMode": "Normal",
-                        "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-                        "fontSize": "10",
-                        "noTimeScale": false,
-                        "valuesTracking": "1",
-                        "changeMode": "price-and-percent",
-                        "chartType": "area",
-                        "maLineColor": "#2962FF",
-                        "maLineWidth": 1,
-                        "maLength": 20,
-                        "lineWidth": 2,
-                        "lineType": 0,
-                        "dateRanges": [
-                        "5d|5",
-                        "1m|30",
-                        "3m|60",
-                        "12m|1D",
-                        "60m|1W",
-                        "all|1M"
-                        ]
-                    }
-                        </script>
-                    </div>
-                    <div class="column">
-                        <script async src="https://static.coinstats.app/widgets/v5/cs-widget.js" ></script><cs-widget type="fear-and-greed"
-                        theme="dark"
-                        direction="horizontal"
-                        background="#0D0D0D"
-                        is-market-sentiment-visible="false"
-                        is-last-updated-visible="false"
-                        title-color="#FFFFFF"
-                        chart-indicator-one-color="#F02935"
-                        chart-indicator-two-color="#F07D29"
-                        chart-indicator-three-color="#9ACB82"
-                        chart-indicator-four-color="#34B349"
-                        subtitle-color="#999999"
-                        last-updated-color="#999999"
-                        arrow-color="#262626"></cs-widget>                    
-                        <div class="tradingview-widget-container widget">
-                            <div class="tradingview-widget-container__widget"></div>
-                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                            {
-                            "symbol": "CRYPTOCAP:TOTAL",
-                            "width": "300",
-                            "height": "200",
-                            "locale": "en",
-                            "dateRange": "3M",
-                            "colorTheme": "dark",
-                            "isTransparent": false,
-                            "autosize": false,
-                            "largeChartUrl": ""
+                        "isTransparent": false,
+                        "autosize": true,
+                        "largeChartUrl": ""
                         }
-                            </script>
+                        </script>
                     </div>
-                </div>            
-            </body>
-            </html>
-                  
-        <div id="heatmap" class="page" style="display:none;">
+                </div>
+            </div>
+        </div>
+        <div id="heatmap" class="page">
             <h2>Heat Map</h2>
             <div class="button-group">
                 <button onclick="updateHeatmap('BTC', '1h')">BTC - 1 Saat</button>
@@ -472,15 +460,15 @@
             </div>
             <iframe src="https://www.coinglass.com/pro/futures/LiquidationHeatMap?symbol=BTC&interval=1h"></iframe>
         </div>
-        <div id="news" class="page" style="display:none;">
+        <div id="news" class="page">
             <h2>Haberler</h2>
             <p>Burada güncel haberler olacak. En son piyasa haberlerini buradan takip edebilirsiniz.</p>
         </div>
-        <div id="tweets" class="page" style="display:none;">
+        <div id="tweets" class="page">
             <h2>Güncel Tweetler</h2>
             <p>Burada güncel tweetler olacak. AykTrade'in resmi Twitter hesabından en son paylaşımlar burada görüntülenecek.</p>
         </div>
-        <div id="product" class="page" style="display:none;">
+        <div id="product" class="page">
             <h2>Ürün Tanıtımı</h2>
             <p>Burada ürün tanıtımı olacak. AykTrade'in sunduğu ürünler ve çözümler hakkında detaylı bilgi alabilirsiniz.</p>
         </div>
