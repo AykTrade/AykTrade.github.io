@@ -267,26 +267,19 @@
             </div>
             <h1>AykTrade</h1>
             <ul>
-                <li><a href="javascript:void(0)" onclick="showPage('summary')">Günün Özeti</a></li>
-                <li><a href="javascript:void(0)" onclick="showPage('heatmap')">Heat Map</a></li>
-                <li><a href="javascript:void(0)" onclick="showPage('news')">Haberler</a></li>
-                <li><a href="javascript:void(0)" onclick="showPage('tweets')">Güncel Tweetler</a></li>
-                <li><a href="javascript:void(0)" onclick="showPage('product')">Ürün Tanıtımı</a></li>
+                <li><a href="javascript:void(0)" onclick="showPage('summary')">Summary</a></li>
+                <li><a href="javascript:void(0)" onclick="showPage('product')">Product</a></li>
             </ul>
         </div>
         <div class="follow-us">
-            <h2>Bizi Takip Edin</h2>
+            <h2>Follow Us</h2>
             <a href="https://t.me/AykTrade" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"></a>
             <a href="https://twitter.com/AykTrade" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/X_icon.svg" alt="Twitter"></a>
-        </div>
-        <div class="visitor-counter">
-            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/626f7f20-56da-4a6c-9996-50364c8b9ae2/dba1ldr-0392beef-c06c-4a34-941a-96b2e596c5ad.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzYyNmY3ZjIwLTU2ZGEtNGE2Yy05OTk2LTUwMzY0YzhiOWFlMlwvZGJhMWxkci0wMzkyYmVlZi1jMDZjLTRhMzQtOTQxYS05NmIyZTU5NmM1YWQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.9N0B612PfRU45uzy-8Zy7X4vgldhuPWwZv8tw3Dcv9w" alt="Watcher Icon">
-            <span id="visitorCount"></span>
         </div>
     </div>
     <div class="content">
         <div id="summary" class="page active">
-            <h2>Günün Özeti</h2>
+            <h2>Summary</h2>
             <div class="tradingview-widget-container">
                 <div class="tradingview-widget-container__widget"></div>
                 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
@@ -345,10 +338,10 @@
                         {
                         "symbols": [
                         [
-                            "BINANCE:ETHUSDT|1M"
+                            "BINANCE:ETHUSDT|5D"
                         ],
                         [
-                            "BINANCE:SOLUSDT|1M"
+                            "BINANCE:SOLUSDT|5D"
                         ]
                         ],
                         "chartOnly": false,
@@ -394,10 +387,10 @@
                         {
                         "symbols": [
                         [
-                            "BINANCE:BTCUSDT|1M"
+                            "BINANCE:BTCUSDT|5D"
                         ],
                         [
-                            "CRYPTOCAP:BTC.D|1M"
+                            "CRYPTOCAP:BTC.D|5D"
                         ]
                         ],
                         "chartOnly": false,
@@ -474,30 +467,136 @@
                 <div class="coin360-column-large">
                     <iframe src="https://coin360.com/widget/map?utm_source=embed_map" frameborder="0" title="Coin360.com: Cryptocurrency Market State" width="100%" height="1000"></iframe>
                 </div>
-                <div class="coin360-column-small">
-                    <!-- Buraya başka bir widget ekleyebilirsiniz -->
-                    <iframe src="https://coin360.com/widget/sentiment?utm_source=embed_map" frameborder="0" title="Coin360.com: Cryptocurrency Sentiment" width="100%" height="300"></iframe>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <div class="tradingview-widget-copyright"><a href="https://tr.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Tüm piyasaları TradingView üzerinden takip edin</span></a></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                    {
+                    "colorTheme": "dark",
+                    "dateRange": "1D",
+                    "showChart": true,
+                    "locale": "tr",
+                    "largeChartUrl": "",
+                    "isTransparent": false,
+                    "showSymbolLogo": true,
+                    "showFloatingTooltip": false,
+                    "width": "400",
+                    "height": "630",
+                    "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+                    "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+                    "gridLineColor": "rgba(42, 46, 57, 0)",
+                    "scaleFontColor": "rgba(209, 212, 220, 1)",
+                    "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+                    "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+                    "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+                    "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+                    "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+                    "tabs": [
+                    {
+                        "title": "Market",
+                        "symbols": [
+                        {
+                            "s": "CRYPTOCAP:TOTAL",
+                            "d": "M"
+                        },
+                        {
+                            "s": "CRYPTOCAP:TOTAL2"
+                        },
+                        {
+                            "s": "CRYPTOCAP:TOTAL3"
+                        },
+                        {
+                            "s": "CRYPTOCAP:USDT.D"
+                        },
+                        {
+                            "s": "CRYPTOCAP:BTC.D"
+                        }
+                        ],
+                        "originalTitle": "Indices"
+                    },
+                    {
+                        "title": "My Coins",
+                        "symbols": [
+                        {
+                            "s": "BINANCE:BTCUSDT"
+                        },
+                        {
+                            "s": "BINANCE:SOLUSDT"
+                        },
+                        {
+                            "s": "BINANCE:AVAXUSDT"
+                        },
+                        {
+                            "s": "BINANCE:ARBUSDT"
+                        },
+                        {
+                            "s": "BINANCE:PIXELUSDT"
+                        },
+                        {
+                            "s": "BINANCE:XRPUSDT"
+                        },
+                        {
+                            "s": "BINANCE:ADAUSDT"
+                        },
+                        {
+                            "s": "BINANCE:DOTUSDT"
+                        },
+                        {
+                            "s": "BINANCE:PHBUSDT"
+                        },
+                        {
+                            "s": "BINANCE:ARUSDT"
+                        },
+                        {
+                            "s": "BINANCE:RNDRUSDT"
+                        },
+                        {
+                            "s": "BINANCE:CAKEUSDT"
+                        },
+                        {
+                            "s": "BINANCE:OPUSDT"
+                        },
+                        {
+                            "s": "BINANCE:SNXUSDT"
+                        },
+                        {
+                            "s": "BINANCE:PORTALUSDT"
+                        },
+                        {
+                            "s": "BINANCE:ETHUSDT"
+                        },
+                        {
+                            "s": "BINANCE:GRTUSDT"
+                        },
+                        {
+                            "s": "BINANCE:ARKMUSDT"
+                        },
+                        {
+                            "s": "BINANCE:DOGEUSDT"
+                        },
+                        {
+                            "s": "BINANCE:SEIUSDT"
+                        },
+                        {
+                            "s": "BINANCE:MEMEUSDT"
+                        },
+                        {
+                            "s": "BINANCE:MINAUSDT"
+                        },
+                        {
+                            "s": "BINANCE:CHZUSDT"
+                        }
+                        ],
+                        "originalTitle": "Bonds"
+                    }
+                    ]
+                }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->                
                 </div>
             </div>
-        </div>
-        <div id="heatmap" class="page">
-            <h2>Heat Map</h2>
-            <div class="button-group">
-                <button onclick="updateHeatmap('BTC', '1h')">BTC - 1 Saat</button>
-                <button onclick="updateHeatmap('ETH', '1h')">ETH - 1 Saat</button>
-                <button onclick="updateHeatmap('BTC', '1d')">BTC - 1 Gün</button>
-                <button onclick="updateHeatmap('ETH', '1d')">ETH - 1 Gün</button>
-                <!-- Diğer coin ve zaman dilimleri eklenebilir -->
-            </div>
-            <iframe src="https://www.coinglass.com/pro/futures/LiquidationHeatMap?symbol=BTC&interval=1h"></iframe>
-        </div>
-        <div id="news" class="page">
-            <h2>Haberler</h2>
-            <p>Burada güncel haberler olacak. En son piyasa haberlerini buradan takip edebilirsiniz.</p>
-        </div>
-        <div id="tweets" class="page">
-            <h2>Güncel Tweetler</h2>
-            <p>Burada güncel tweetler olacak. AykTrade'in resmi Twitter hesabından en son paylaşımlar burada görüntülenecek.</p>
         </div>
         <div id="product" class="page">
             <h2>Ürün Tanıtımı</h2>
